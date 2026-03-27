@@ -1,0 +1,5 @@
+{
+  "name": "Gerador de Pedidos Médicos - Centro da Saúde Ocular",
+  "description": "Uma ferramenta profissional para geração de pedidos médicos padronizados para o Centro da Saúde Ocular Drª. Kátia Mello, com seleção de médicos, exames e laterais oculares.",
+  "requestFramePermissions": []
+}
