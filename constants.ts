@@ -55,6 +55,12 @@ export const DOCTORS: Doctor[] = [
     name: 'Dra. Marceli Bastos',
     crm: '583431',
     signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/marceli-3StOWjYfznGLZK9V.jpg'
+  },
+  {
+    id: 'julia-soares',
+    name: 'Dra. Julia Soares',
+    crm: '521162772',
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1777404909/htyv0ekjgp7bgoo5oid7.jpg'
   }
 ];
 
