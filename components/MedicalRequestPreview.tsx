@@ -20,7 +20,7 @@ export const MedicalRequestPreview: React.FC<MedicalRequestPreviewProps> = ({ da
       <header className="flex flex-col items-center text-center mb-8 text-blue-800 shrink-0">
         <div className="mb-3">
           <img 
-            src="https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/logo-Awv4rRww1ESzKogR.png" 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDQuiD1qkNsRZQhRiJdI_o6IjDVktnGBcb6w&s" 
             alt="Logo Centro da Saúde Ocular" 
             className="h-20 w-auto object-contain"
           />

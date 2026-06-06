@@ -12,49 +12,49 @@ export const DOCTORS: Doctor[] = [
     id: 'marta-ferreira',
     name: 'Dra. Marta Ferreira',
     crm: '731412',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/marta-ktscB0IYkiFCoON6.jpg'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746675/dz924fr5xtkflmarnffn.jpg'
   },
   {
     id: 'marcio-monteiro',
     name: 'Dr. Marcio Monteiro',
     crm: '52599834',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/marcio_monteiro-2jJFSyo2vdaLyFzb.png'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746675/owpaclomdx6frq4hvodl.jpg'
   },
   {
     id: 'maria-luisa',
     name: 'Dra. Maria Luisa',
     crm: '52573183',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/maria-h1ejNU8jzVWBuHgX.jpg'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746742/jdjbm1ofw8kr0smomdtp.jpg'
   },
   {
     id: 'adriana-franco',
     name: 'Dra. Adriana Franco',
     crm: '52629804',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/adriana_franco-bNF2eXhCQVDeOo5H.png'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746501/hhxnlwthowhkspe5vu6x.png'
   },
   {
     id: 'alana-reis',
     name: 'Dra. Alana Reis',
     crm: '521023683',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/alana-oKIyOBEaSKh6FQ8D.jpg'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746500/siwlrusjhjrbw2bdb7j2.jpg'
   },
   {
     id: 'claudia-morgado',
     name: 'Dra. Claudia Morgado',
     crm: '52117882-2',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/claudia-KapbyYoMGnHfTxyV.jpg'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746674/crbfsiphmptdhwtqnfuz.jpg'
   },
   {
     id: 'fabia-crespo',
     name: 'Dra. Fabia Crespo',
     crm: '838446',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/fabia_crespo_carimbo-dg3yIU5yeX82YE2q.png'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746500/fnzuk6vvhbxbksoiitrt.png'
   },
   {
     id: 'marceli-bastos',
     name: 'Dra. Marceli Bastos',
     crm: '583431',
-    signatureUrl: 'https://assets.zyrosite.com/ALpeJ4P1RzcZJLwB/marceli-3StOWjYfznGLZK9V.jpg'
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780746501/qlvavmvgtd4tm61j7sv2.jpg'
   },
   {
     id: 'julia-soares',
