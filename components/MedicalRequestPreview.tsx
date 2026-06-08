@@ -15,14 +15,15 @@ export const MedicalRequestPreview: React.FC<MedicalRequestPreviewProps> = ({ da
   };
 
   return (
-    <div className="print-area bg-white w-full aspect-[1/1.4142] p-[1.5cm] shadow-xl mx-auto flex flex-col font-courier text-[#000000] overflow-hidden min-h-[29.7cm]">
+    <div className="print-area bg-white w-full aspect-[1/1.4142] p-[1.0cm] shadow-xl mx-auto flex flex-col font-courier text-[#000000] overflow-hidden min-h-[29.7cm]">
       {/* Centered Vertical Header */}
-      <header className="flex flex-col items-center text-center mb-8 text-blue-800 shrink-0">
-        <div className="mb-3">
+      <header className="flex flex-col items-center text-center mb-4 text-blue-800 shrink-0">
+        <div className="mb-2">
           <img 
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDQuiD1qkNsRZQhRiJdI_o6IjDVktnGBcb6w&s" 
             alt="Logo Centro da Saúde Ocular" 
-            className="h-20 w-auto object-contain"
+            referrerPolicy="no-referrer"
+            className="h-16 w-auto object-contain"
           />
         </div>
         <div className="font-bold leading-tight">
@@ -37,7 +38,7 @@ export const MedicalRequestPreview: React.FC<MedicalRequestPreviewProps> = ({ da
       </header>
 
       {/* Patient Info */}
-      <section className="mb-8 space-y-1.5 text-[10pt] uppercase shrink-0">
+      <section className="mb-4 space-y-1 text-[10pt] uppercase shrink-0">
         <div className="flex items-baseline">
           <span className="font-bold min-w-[130px]">PACIENTE:</span>
           <span className="border-b border-gray-300 flex-grow pb-0.5 min-h-[1.2rem]">
@@ -59,16 +60,16 @@ export const MedicalRequestPreview: React.FC<MedicalRequestPreviewProps> = ({ da
         <div className="flex items-baseline">
           <span className="font-bold min-w-[130px]">CRM:</span>
           <span className="border-b border-gray-300 flex-grow pb-0.5 min-h-[1.2rem]">
-            {selectedDoctor.crm}
+            {selectedDoctor.crm} {selectedDoctor.rqe ? ` / RQE: ${selectedDoctor.rqe}` : ''}
           </span>
         </div>
       </section>
 
       {/* Request Body - FLEX GROW TO PUSH FOOTER DOWN */}
-      <main className="flex-grow mt-2 overflow-hidden">
-        <p className="mb-6 font-bold text-[10pt] uppercase italic underline">SOLICITO A REALIZAÇÃO DOS SEGUINTES EXAMES:</p>
+      <main className="flex-grow mt-1 overflow-hidden">
+        <p className="mb-4 font-bold text-[10pt] uppercase italic underline">SOLICITO A REALIZAÇÃO DOS SEGUINTES EXAMES:</p>
         
-        <ul className="mb-8 space-y-3 ml-4">
+        <ul className="mb-4 space-y-1.5 ml-4">
           {data.exams.length > 0 ? (
             data.exams.map((exam, idx) => (
               <li key={idx} className="flex items-start text-[10pt] uppercase font-bold">
@@ -84,35 +85,36 @@ export const MedicalRequestPreview: React.FC<MedicalRequestPreviewProps> = ({ da
         </ul>
 
         {data.clinicalIndication && (
-          <div className="mt-8 text-[10pt] uppercase leading-relaxed p-4 bg-gray-50 border-l-4 border-blue-200">
+          <div className="mt-4 text-[10pt] uppercase leading-relaxed p-3 bg-gray-50 border-l-4 border-blue-200">
             <span className="underline font-bold">INDICAÇÃO CLÍNICA:</span><br/>
-            <span className="mt-2 block line-clamp-6">{data.clinicalIndication}</span>
+            <span className="mt-1 block line-clamp-4">{data.clinicalIndication}</span>
           </div>
         )}
       </main>
 
       {/* Footer / Stamp Area - FORCED TO BOTTOM */}
-      <footer className="mt-auto flex flex-col items-center shrink-0 w-full pt-8 pb-10">
-        <div className="flex justify-center w-full relative">
+      <footer className="mt-auto flex flex-col items-center shrink-0 w-full pt-2 pb-6">
+        <div className="flex flex-col items-center justify-center w-full">
             {/* Somente o Carimbo */}
             {selectedDoctor.signatureUrl ? (
               <div className="flex justify-center w-full">
                  <img 
                   src={selectedDoctor.signatureUrl} 
                   alt="Carimbo" 
-                  className="h-32 w-auto object-contain mix-blend-multiply contrast-125 grayscale opacity-90 rotate-[-1deg]"
+                  referrerPolicy="no-referrer"
+                  className="h-32 w-auto object-contain mix-blend-multiply contrast-125 opacity-95"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
+                    console.warn("Could not load image reference:", selectedDoctor.signatureUrl);
                   }}
                  />
               </div>
             ) : (
-              <div className="opacity-30 grayscale contrast-125 scale-[1.0] pointer-events-none pb-8">
-                   <svg width="150" height="75" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+              <div className="opacity-30 grayscale contrast-125 scale-[1.0] pointer-events-none pb-4 text-center">
+                   <svg width="150" height="75" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
                       <path d="M10 40 Q 30 10 60 35 T 110 20" fill="none" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" />
                       <path d="M15 45 Q 35 15 65 40 T 115 25" fill="none" stroke="#2563eb" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
                    </svg>
-                   <div className="text-[8pt] text-gray-400 font-bold uppercase tracking-widest mt-2 text-center">CARIMBO DIGITAL</div>
+                   <div className="text-[8pt] text-gray-400 font-bold uppercase tracking-widest mt-2">{selectedDoctor.name}</div>
               </div>
             )}
         </div>

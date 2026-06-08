@@ -8,14 +8,55 @@ import { MedicalRequestPreview } from './components/MedicalRequestPreview';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'form' | 'doctors'>('form');
-  const [doctors, setDoctors] = useState<Doctor[]>(INITIAL_DOCTORS);
-  const [formData, setFormData] = useState<MedicalRequestData>({
-    patientName: '',
-    examDate: new Date().toISOString().split('T')[0],
-    doctorId: doctors[0]?.id || '',
-    exams: [],
-    clinicalIndication: ''
+  const [doctors, setDoctors] = useState<Doctor[]>(() => {
+    try {
+      const saved = localStorage.getItem('saude_ocular_doctors');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.id) {
+          return parsed;
+        }
+      }
+    } catch (e) {}
+    return INITIAL_DOCTORS;
   });
+
+  const [formData, setFormData] = useState<MedicalRequestData>(() => {
+    try {
+      const saved = localStorage.getItem('saude_ocular_form_data');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === 'object') {
+          return {
+            patientName: parsed.patientName || '',
+            examDate: parsed.examDate || new Date().toISOString().split('T')[0],
+            doctorId: parsed.doctorId || doctors[0]?.id || '',
+            exams: parsed.exams || [],
+            clinicalIndication: parsed.clinicalIndication || ''
+          };
+        }
+      }
+    } catch (e) {}
+    return {
+      patientName: '',
+      examDate: new Date().toISOString().split('T')[0],
+      doctorId: doctors[0]?.id || '',
+      exams: [],
+      clinicalIndication: ''
+    };
+  });
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem('saude_ocular_doctors', JSON.stringify(doctors));
+    } catch (e) {}
+  }, [doctors]);
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem('saude_ocular_form_data', JSON.stringify(formData));
+    } catch (e) {}
+  }, [formData]);
 
   const handlePrint = () => {
     window.print();
