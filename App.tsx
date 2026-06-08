@@ -14,7 +14,22 @@ const App: React.FC = () => {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.id) {
-          return parsed;
+          const parsedIds = new Set(parsed.map((d: Doctor) => d.id));
+          const missingDefaults = INITIAL_DOCTORS.filter(d => !parsedIds.has(d.id));
+          const updatedParsed = parsed.map((d: Doctor) => {
+            const defDoc = INITIAL_DOCTORS.find(initDoc => initDoc.id === d.id);
+            if (defDoc) {
+              return {
+                ...d,
+                name: d.name === 'Novo Médico' ? d.name : defDoc.name,
+                crm: d.crm === '000000' ? d.crm : defDoc.crm,
+                rqe: defDoc.rqe || d.rqe,
+                signatureUrl: defDoc.signatureUrl || d.signatureUrl,
+              };
+            }
+            return d;
+          });
+          return [...updatedParsed, ...missingDefaults];
         }
       }
     } catch (e) {}

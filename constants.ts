@@ -61,6 +61,13 @@ export const DOCTORS: Doctor[] = [
     name: 'Dra. Julia Soares',
     crm: '521162772',
     signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1777404909/htyv0ekjgp7bgoo5oid7.jpg'
+  },
+  {
+    id: 'billy-paul',
+    name: 'Dr. Billy Paul',
+    crm: '1352288',
+    rqe: '56926',
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780921543/hrjpcefnbudwwr64bjk4.jpg'
   }
 ];
 
