@@ -36,7 +36,16 @@ const App: React.FC = () => {
     return INITIAL_DOCTORS;
   });
 
+  const getTodayDateString = () => {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const [formData, setFormData] = useState<MedicalRequestData>(() => {
+    const today = getTodayDateString();
     try {
       const saved = localStorage.getItem('saude_ocular_form_data');
       if (saved) {
@@ -44,7 +53,7 @@ const App: React.FC = () => {
         if (parsed && typeof parsed === 'object') {
           return {
             patientName: parsed.patientName || '',
-            examDate: parsed.examDate || new Date().toISOString().split('T')[0],
+            examDate: today,
             doctorId: parsed.doctorId || doctors[0]?.id || '',
             exams: parsed.exams || [],
             clinicalIndication: parsed.clinicalIndication || ''
@@ -54,7 +63,7 @@ const App: React.FC = () => {
     } catch (e) {}
     return {
       patientName: '',
-      examDate: new Date().toISOString().split('T')[0],
+      examDate: today,
       doctorId: doctors[0]?.id || '',
       exams: [],
       clinicalIndication: ''
