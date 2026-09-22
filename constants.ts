@@ -68,6 +68,12 @@ export const DOCTORS: Doctor[] = [
     crm: '1352288',
     rqe: '56926',
     signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1780921543/hrjpcefnbudwwr64bjk4.jpg'
+  },
+  {
+    id: 'ana-ligia-gazolla',
+    name: 'Dra. Ana Ligia Gazolla',
+    crm: '867373',
+    signatureUrl: 'https://res.cloudinary.com/dm2aqydrq/image/upload/v1790077066/qxnvyflgmzpqnr0rb2ag.jpg'
   }
 ];
 
